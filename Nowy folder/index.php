@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberNet Terminal - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.php" class="active">💻 Główna</a>
+        <a href="services.php">🛠️ Usługi</a>
+        <a href="status.php">📡 Status</a>
+    </nav>
+
+    <div class="terminal">
+        <h1>[ SYSTEM_ONLINE ]</h1>
+        <p>Główny węzeł testowy na instancji OpenStack działa stabilnie. Poniżej znajdują się logi systemowe i dostępne moduły sieciowe.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <h3>Rdzeń vCPU</h3>
+                <p>Status: Optymalny</p>
+            </div>
+            <div class="card">
+                <h3>Przepustowość</h3>
+                <p>982 Gbps / Node</p>
+            </div>
+        </div>
+
+        <button class="neon-btn" id="log-btn">Inicjuj skanowanie pakietów</button>
+        <div id="log-output">Oczekiwanie na sygnał...</div>
+    </div>
+
+    <script>
+        document.getElementById('log-btn').addEventListener('click', () => {
+            const out = document.getElementById('log-output');
+            out.innerHTML = "> Łączenie z DNS...<br>";
+            setTimeout(() => out.innerHTML += "> Przechwytywanie pakietów z eth0...<br>", 400);
+            setTimeout(() => out.innerHTML += "> Wykryto IP serwera: " + window.location.hostname + "<br>", 800);
+            setTimeout(() => out.innerHTML += "> SKANOWANIE ZAKOŃCZONE POMYŚLNIE. 🎉", 1200);
+        });
+    </script>
+
+</body>
+</html>
